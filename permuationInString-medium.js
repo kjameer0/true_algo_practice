@@ -1,34 +1,37 @@
 var checkInclusion = function (s1, s2) {
-  const permutationReference = {};
+  let permTable = new Map();
   for (let i = 0; i < s1.length; i++) {
-    if (!permutationReference.hasOwnProperty(s1[i])) {
-      permutationReference[s1[i]] = 1;
-    } else permutationReference[s1[i]]++;
+    if (!permTable.has(s1[i])) {
+      permTable.set(s1[i], 1);
+    } else {
+      permTable.set(s1[i], permTable.get(s1[i]) + 1);
+    }
   }
-  let s2Ref = {};
-  for (let start = 0; start < s2.length; start++) {
-    let currentLetter = s2[start];
-    if (permutationReference[currentLetter]) {
-      if (s2Ref[currentLetter]) s2Ref[currentLetter]++;
-      else s2Ref[currentLetter] = 1;
-    } else s2Ref = {};
-    if (
-      Object.keys(s2Ref).length === Object.keys(permutationReference).length
-    ) {
-      for (let prop in s2Ref) {
-        if (s2Ref[prop] !== permutationReference[prop]) {
-          s2Ref = {};
-          break;
-        }
+  let tableFors2 = new Map();
+  let start = 0;
+  for (let end = 0; end < s2.length; end++) {
+    let currentLetter = s2[end];
+    if (!tableFors2.has(currentLetter)) {
+      tableFors2.set(currentLetter, 1);
+    } else tableFors2.set(currentLetter, tableFors2.get(currentLetter) + 1);
+    if (!permTable.has(currentLetter)) {
+      while (start <= end) {
+        tableFors2.set(s2[start], tableFors2.get(s2[start]) - 1);
+        start++;
       }
-      if (
-        Object.keys(s2Ref).length === Object.keys(permutationReference).length
-      ) {
-        return true;
+    } else if (permTable.has(currentLetter)) {
+      while (tableFors2.get(currentLetter) > permTable.get(currentLetter)) {
+        tableFors2.set(s2[start], tableFors2.get(s2[start]) - 1);
+        start++;
       }
     }
+    if (s1.length === end - start + 1) return true;
   }
   return false;
 };
 
-console.log(checkInclusion("adc", "dcda"));
+//is there a relationship between size and length
+//yes actually, the difference between length and size is the number of duplicates
+console.log(checkInclusion("ab", "eidbaaooo"));
+//console.log(checkInclusion("aab", "eithbaba"));
+// console.log(checkInclusion("rmqqh", "nrsqrqhrymf"));
