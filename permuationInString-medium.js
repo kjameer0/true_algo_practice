@@ -32,6 +32,6 @@ var checkInclusion = function (s1, s2) {
 
 //is there a relationship between size and length
 //yes actually, the difference between length and size is the number of duplicates
-console.log(checkInclusion("ab", "eidbaaooo"));
+console.log(checkInclusion("aboa", "eidababbabbaaooo"));
 //console.log(checkInclusion("aab", "eithbaba"));
 // console.log(checkInclusion("rmqqh", "nrsqrqhrymf"));

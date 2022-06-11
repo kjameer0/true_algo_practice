@@ -8,6 +8,7 @@ var checkInclusion = function (s1, s2) {
     count[s1.charCodeAt(i) - 97]++;
     count[s2.charCodeAt(i) - 97]--;
   }
+  console.log(count);
   if (!count.some((e) => e !== 0)) return true;
 
   for (let i = len1; i < len2; i++) {
@@ -17,3 +18,5 @@ var checkInclusion = function (s1, s2) {
   }
   return false;
 };
+
+console.log(checkInclusion("ab", "eidbaaooo"));
