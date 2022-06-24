@@ -1,0 +1,31 @@
+var longestPalindrome = function (s) {
+  let longest = "";
+  for (let left = 0; left < s.length; left++) {
+    for (let right = s.length - 1; right >= left; right--) {
+      let start = left;
+      let end = right;
+      let isPalindrome;
+      while (start < end) {
+        console.log(start, end);
+        if (s[start] !== s[end]) {
+          isPalindrome = false;
+          break;
+        } else if (s[start] === s[end]) {
+          isPalindrome = true;
+        }
+        start++;
+        end--;
+      }
+      if (isPalindrome === true) {
+        console.log("hi", left, right);
+        let newPalin = s.slice(left, left + right);
+        console.log(newPalin);
+        longest = longest.length > newPalin.length ? longest : newPalin;
+      } else longest = longest.length > 1 ? longest : s[left];
+    }
+  }
+
+  return longest;
+};
+
+console.log(longestPalindrome("bbbd"));

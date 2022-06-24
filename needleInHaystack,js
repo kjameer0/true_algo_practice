@@ -1,0 +1,17 @@
+var strStr = function (haystack, needle) {
+  if (needle.length === 0) return 0;
+  let start;
+  for (let i = 0; i < haystack.length; i++) {
+    if (haystack[i] === needle[0]) {
+      for (start = 0; start < needle.length; start++) {
+        if (haystack[i + start] !== needle[start]) {
+          break;
+        }
+      }
+      if (start === needle.length) {
+        return i;
+      }
+    }
+  }
+  return -1;
+};
