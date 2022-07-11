@@ -9,7 +9,6 @@ var floodFill = function (image, sr, sc, newColor) {
     if (!validRow || !validCol) return;
     if (image[row][column] !== old) return;
     else {
-      let current = image[row][column];
       image[row][column] = newColor;
       depth(image, row - 1, column);
       depth(image, row + 1, column);
