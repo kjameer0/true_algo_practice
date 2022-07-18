@@ -17,3 +17,4 @@ var numIslands = function(grid) {
        if (matrix[current[0]][current[1]]) continue
 
    }
+  }

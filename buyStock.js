@@ -1,0 +1,1 @@
+var maxProfit = function (prices) {};
