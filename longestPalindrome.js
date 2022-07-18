@@ -21,3 +21,15 @@ var longestPalindrome = function (s) {
 //space time analysis
 // O 2n worst case if all characters are unique
 //O n space because at worst all of the charcters are stored to memory
+
+var longestPalindrome = function (s) {
+  let chars = new Set();
+  let count = 0;
+  for (let char of s) {
+    if (chars.has(char)) {
+      count += 2;
+      chars.delete(char);
+    } else chars.add(char, 1);
+  }
+  return count + (chars.size > 0 ? 1 : 0);
+};
