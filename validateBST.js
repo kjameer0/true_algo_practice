@@ -23,3 +23,19 @@ var isValidBST = function (root) {
   traverse(root);
   return valid;
 };
+
+var isValidBST2 = function (root) {
+  let res = true;
+  let prev = -Infinity;
+  function traverse(root) {
+    if (!root || !res) return;
+    else {
+      if (root.left) traverse(root.left);
+      if (prev >= root.val) res = false;
+      prev = root.val;
+      traverse(root.right);
+    }
+  }
+  traverse(root);
+  return res;
+};
