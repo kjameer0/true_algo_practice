@@ -20,6 +20,26 @@ var floodFill = function (image, sr, sc, newColor) {
   return image;
 };
 
+var floodFill2 = function (image, sr, sc, color) {
+  let oldColor = image[sr][sc];
+  if (oldColor === color) return image;
+  let rows = image.length;
+  let cols = image[0].length;
+  function search(image, r, c) {
+    if (r >= rows || r < 0) return;
+    if (c >= cols || c < 0) return;
+    if (image[r][c] !== oldColor) return;
+    else {
+      image[r][c] = color;
+      search(image, r - 1, c);
+      search(image, r + 1, c);
+      search(image, r, c - 1);
+      search(image, r, c + 1);
+    }
+  }
+  search(image, sr, sc);
+  return image;
+};
 /**
  * start from the given pixel of an image
  * //if the adjacent pixels have the same color check the pixels around it
