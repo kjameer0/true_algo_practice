@@ -1,0 +1,12 @@
+Algorithm:
+1. add non ']' characters to a stack
+2. if !']' then pop off substring and multiply it by the current substring
+3. keep doing that til stack is empty
+
+space complexity analysis:
+ worst case the entire string is in the stack except for the last ']'
+ so the space complexity is bound by O(n)
+
+ time complexity analysis:
+ bound by O(n) because you have to read every character
+ it might technically be 2n sort of because popping off the stack will take you all the way back through n values
