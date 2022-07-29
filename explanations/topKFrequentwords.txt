@@ -1,1 +1,21 @@
+Given = array of words of varying frequencies, k = top
+k frequent words should be returned
+return array of top k words sorted in lexicographical order
+Solution 1:
 Time Complexity: O(n * log(k))
+Space Complexity: O(n)
+Concepts: Priority Queue, Heap, Hash Table, sorting
+Algorithm:
+1. Create a hash Table
+  Why? to store every word and its frequency
+  the frequency is the primary way of sorting the array
+2. Create Priority Queue
+  Why? the Priority Queue will be taking every word and making sure
+  that they are stored in an order that will be correct when
+  we are polling from the top
+3. Create Priority Queue comparison function
+  Queue needs to take input and place it in the right spot
+  so it has to take the element and put the lower frequencies near the top and sort in lexicographical order if frequencies are different
+4. enqueue
+  Why? start adding values from table to queue, this will allow it
+  such that queue will sort values. when queue size is bigger than k, dequeue because the words we want will be towards the bottom.
