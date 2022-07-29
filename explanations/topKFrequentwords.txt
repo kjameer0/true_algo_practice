@@ -19,3 +19,7 @@ Algorithm:
 4. enqueue
   Why? start adding values from table to queue, this will allow it
   such that queue will sort values. when queue size is bigger than k, dequeue because the words we want will be towards the bottom.
+  there will always be <= k items in queue to maintain log(k) Time
+
+  5. dequeue
+  after n log k adding and polling queue, grab remaining elements and push them to result. they will come out in reverse order becuase of the compare rules we set earlier so just reverse the array and we're done.
