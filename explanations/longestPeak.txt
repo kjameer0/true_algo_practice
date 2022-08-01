@@ -1,0 +1,15 @@
+TC: O(n) because its only a single loop
+SC: O(1) because only a few variables are being declared
+regardless of input size
+given an array of integers, return the longest chain of
+numbers that strictly increase then strictly decrease
+
+Algorithm:
+1. loop array from second to second to last element, since a
+peak needs numbers on both sides
+2. check if peak
+3. if not peak keep going
+4. else set pointers to extend from peak to left and right
+5. when they either stop decreasing or hit an equal or the end
+of array get their difference - 1 and compare to existing max peak
+6. return max
