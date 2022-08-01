@@ -1,0 +1,25 @@
+Time: O(n)
+Space: O(n)
+
+wahts fucking going on in this rpoblem
+you cant use division btw;
+[5,1,4,2]
+for each position in this array, make a new array containing the product
+of every number in the array but the one in that position
+[8,40,10,20]
+Naive Solution:
+The naive Solution entails looping through the array and multiplying each number not at the current index by the number at the current index. this is a quadratic time solution, because every iteration entails going through the whole array again.
+
+definition:
+product of every number but the current index value:
+  product of all numbers to the left and all numbers to the right
+okay now turn the naive solution into a more optimal solution:
+you got it fam
+all right so the problem with the naive solution is that im recalculating the same numbers over and over again
+so what i can do instead is just create a store of what products are to the left and right of a given position so i dont have to recalculate.
+[5,1,4,2]
+products to left [1,5,5,20]
+products to right [8,8,2,1]
+so at any given index in the product left/right array the product
+of everything in that direction rests. so all i have to do now is
+loop through the original array and multiply left and right at that index to get the product of everything to the left and right
