@@ -1,0 +1,25 @@
+Time: O(n)
+Space: O(n)
+
+Question:
+Given : non-empty array of pairs. each individual pair has a start and an end where end >= start. the array is unsorted
+ex:
+[
+  [1, 2],[3, 5],[4, 7],[6, 8], [9, 10]
+]
+theory:
+1. if you sort the array by ascending order of start values
+2. if you loop through that sorted array
+3. if you create a result array
+
+you can compare one interval in the array to the next
+if they can merge
+  merge them
+  make the next value you compare this new verge value
+otherwise
+  you can move the current value you're looking at onto the
+  result array(whether or not it has been merged)
+  you can set the new value to be compared to be next value in the array
+
+after the loop you can just drop the last current value into
+the result and return it
