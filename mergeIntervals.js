@@ -32,11 +32,21 @@ var merge = function (intervals) {
   return res;
 };
 
-console.log(
-  merge([
-    [1, 3],
-    [2, 6],
-    [8, 10],
-    [15, 18],
-  ])
-);
+function mergeOverlappingIntervals(array) {
+  // Write your code here.
+  array = array.sort((a, b) => a[0] - b[0]);
+  let res = [];
+  let merge, cur;
+  cur = array[0];
+  for (let i = 0; i < array.length - 1; i++) {
+    if (cur[1] >= array[i + 1][0]) {
+      merge = [cur[0], Math.max(cur[1], array[i + 1][1])];
+      cur = merge;
+    } else {
+      res.push(cur);
+      cur = array[i + 1];
+    }
+  }
+  res.push(cur);
+  return res;
+}
