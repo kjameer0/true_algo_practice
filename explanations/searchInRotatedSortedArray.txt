@@ -1,0 +1,42 @@
+Complexity:
+time: O(n);
+space: O(1);
+
+explanation:
+the idea with this problem is that you take a sorted array
+with distinct integers:
+[0,1,2,4,5,6,7]
+and rotate it:
+[4,5,6,7,0,1,2]
+That rotated array should be searched for a target value
+The array may nor may not be sorted;
+this new array creates two sub arrays on the left and right side.
+every value in the left sub array is strictly greater than every value in the right subarray
+so the rightmost value in the array itself is the largest value in the right subarray
+and the leftmost value in the array itself is the smallest value in the left subarray
+Algorithm:
+This Algorithm keeps O(n) time by just adding more complicated logic onto binary search.
+when you do a binary search, you're looking for a mid between
+the current end points of the array you're searching, and you move the left and right pointers depending on whether or not your current mid point is greater or less than the target.
+all we wanna do is find a mid point
+determine if we are at the target
+if not determine if we're in the left sub array or right
+determine whether or not to search left or right;
+given any point in the array itself, we can determine if we
+are in the left subarray if:
+1. the current value is greater than the rightmost value in the array itself;
+we can determine if we are in the right subarray if:
+1. the current value is less than the first element in the array itself
+
+given we are in the left subarray:
+we can determine that we should search right if:
+1. the target value is greater than the current value or
+the target value is less than the leftmost value in the array
+
+otherwise we search left
+
+given we are in the right subarray:
+we can determine that we should search left if:
+1. the target value is greater than the rightmost value or
+the target value is less than the current value
+otherwise we search left
