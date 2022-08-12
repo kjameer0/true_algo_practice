@@ -1,0 +1,39 @@
+Time Complexity: O(n squared)
+space complexity: constant
+
+problem:
+given:
+  string- 'ababd'
+return string that is the longest palindromic substring
+'aba'
+ substring must be continuous
+
+ explanation:
+ the idea with this problem is to take the whole string,
+ look at each character in it as a potential center of a palindrome, and expand outward until the rules of being
+ a palindrome no longer hold.
+ b -> aba -> -abab? no -> return aba
+
+ Algorithm:
+ create left and right pointer
+loop through the entire string
+set pointers on current character
+if a character is surrounded by itself, move left and right
+until only that character is contained within left and right bounds.
+using this methods of establishing an x character center removes the trouble of having to write two different loops to
+check for an even or odd length center
+while there still characters at either end to look at
+if the characters we are looking at are equal
+  expand left and right
+  else break the loop
+if the difference between right and left is greater than the current greatest right and left, overwrite the old longest with the new longest
+return the portion of the string that is the longest palindrome
+
+Khalid Theory crafting:
+This is a 'definition' problem in my book.
+they give you a term,  palindromic substring, and you have to find one that meets certain conditions(the longest one of these substrings);
+a palindrome is defined by having -any- number of a single character in the middle followed by mirrored values going left and right from the center.
+my Algorithm entails defining a center, any number of one character, and expanding from there to maintain palindromic property.
+by relying on the definition of palindromic center to just search for any number of a single character, i dont have to branch my logic to cover whether or not the center has 1 or 2 characters
+like with -cbbd- there are two b's. i see the first b, and im like, while there are b's up ahead keep pushing my right pointer.
+when that pointer is done i now have all b's, and i can expand normally from there.
