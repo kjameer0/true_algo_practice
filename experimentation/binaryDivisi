@@ -1,0 +1,17 @@
+function divide(x, y) {
+  let binX = convert(x);
+  let binY = convert(y);
+}
+function convert(x) {
+  let count = Math.floor(Math.log2(x));
+  let res = "";
+  while (count >= 0) {
+    if (x >= 2 ** count) {
+      res += "1";
+      x -= 2 ** count;
+    } else res += "0";
+    count--;
+  }
+  return res;
+}
+console.log(convert(333333333333));

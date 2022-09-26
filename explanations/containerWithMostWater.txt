@@ -1,0 +1,20 @@
+Time complexity: O(n)
+Space complexity: O(1)
+
+Problem statement:
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+Return the maximum amount of water a container can store.
+Notice that you may not slant the container.
+
+Pointers that helped me with the problem:
+1. when you're looking at two vertical lines, all the other ones are irrelevant. so you dont have to worry about one line "blocking" another.
+2. the height of a two line container is capped by the height of the shorted line
+
+Algorithm:
+From the outermost lines, calculate the volume of water, then move the shorter one in;
+return the highest volume
+
+Why does it work?
+You're keeping track of the result of every relevant combination of lines.
+there's no point in measuring
