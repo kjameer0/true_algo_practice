@@ -1,0 +1,20 @@
+A string s is nice if, for every letter of the alphabet that s contains, it appears both in uppercase and lowercase. For example, "abABB" is nice because 'A' and 'a' appear, and 'B' and 'b' appear. However, "abA" is not because 'b' appears, but 'B' does not.
+Given a string s, return the longest substring of s that is nice. If there are multiple, return the substring of the earliest occurrence. If there are none, return an empty string.
+ex: YazaAay = aAa
+
+Topic: Map, recursion, divide and conquer
+
+long explanation:
+this is a basic divide and conquer problem. i have a definition, nice string, that cant beeasily brute force found in a string. what can be found is whether or not the current string doent -not- meet the definition of nice string. so if i loop the string, add every unique letter to a set, and then loop the string again to find a possible letter that does not have a corresponding letter, when i do find that loneley letter, i can run the original function again on the left and right half of the whole string, excluding the letter that does not have a match. when i do that, im admitting that the current string i am looking at does not have the properties of a nice string, but a smaller portion of the string might. so i break the string in half and run the same function again and again until either i find a string that meets the conditions i am looking for, or i end up with a string of less than 2 length, which cant be nice so i return ''. either the whole string im looking at is nice, or a part of it is, in which case i need to divide and conquer
+
+simple explanation:
+there is a string.
+add all unique letters to set
+loop string
+if a letter in string does not have a match
+    recursively split string in two and return longest substring that has only matches
+return string (in case a string or substring totally works)
+
+
+what did i learn about divide and conquer?
+1.

@@ -1,0 +1,18 @@
+In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
+
+If the town judge exists, then:
+
+The town judge trusts nobody.
+Everybody (except for the town judge) trusts the town judge.
+There is exactly one person that satisfies properties 1 and 2.
+You are given an array trust where trust[i] = [ai, bi] representing that the person labeled ai trusts the person labeled bi.
+
+Return the label of the town judge if the town judge exists and can be identified, or return -1 otherwise.
+
+Topics: array, directed graph
+
+long explanation:
+so for this problem these terms indegrees and outdegrees come into play. an indegree is how many directed connection come into a vertex, and outdegree is how many directed connections come out of a vertex. in the case of this problem, a graph would represent who trusts who. an indegree would be how many people trust that particular person, while outdegree represents how many people that person trusts. i need to loop the trusts array and use two arrays to keep track of who trusts who, and who is trusted by who
+
+why not an adjacency list?
+if i used an adjacency list, i would have an object fillef with arrays. once i put in all the trusts and trusted, i would have to loop through the object to find a person who didnt trust anybody, and then loop the graph again to make sure everyone trusts that person. the two arrays contain how many people are trusted by a person(outdegree) and how many people trust that person(indegree). because the numerical value im looking for is stored at indexes that correspond to the person's number (1...n) i can instantly access how many people trust and are trusted by any one person. making the matter of solving the problem finding someone who has 0 outdegrees and n-1 indegrees.
