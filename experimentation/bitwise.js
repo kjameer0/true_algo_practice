@@ -35,5 +35,4 @@ function addBinary(a, b) {
   if (carry) res.push(String(carry));
   return res.reverse().join("");
 }
-
-console.log(addBinary("11", "1"));
+console.log(!!0);
