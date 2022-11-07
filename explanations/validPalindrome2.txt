@@ -1,0 +1,5 @@
+notes:
+the trick to this problem entails using a helper function.
+the helper function checks whether a given string at certain indices is a palidrome.
+so when you see two letters not matching, you can either delete the char at the left or right pointer.
+by checking if either substring is a palidrome, you can effectively delete a single character and check whether or not the original string can have a single character deleted.

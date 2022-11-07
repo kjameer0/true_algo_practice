@@ -1,0 +1,32 @@
+Time Complexity: O(N + M), where NN is a number of nodes (vertices) and MM is a number of edges.
+Space Complexity: O(N). This space is occupied by the visited hash map and in addition to that, space would also be occupied by the recursion stack since we are adopting a recursive approach here. The space occupied by the recursion stack would be equal to O(H) where HH is the height of the graph. Overall, the space complexity would be O(N).
+Given a reference of a node in a connected undirected graph.
+Return a deep copy (clone) of the graph.
+Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.
+
+class Node {
+    public int val;
+    public List<Node> neighbors;
+}
+Test case format:
+For simplicity, each node's value is the same as the node's index (1-indexed). For example, the first node with val == 1, the second node with val == 2, and so on. The graph is represented in the test case using an adjacency list.
+
+An adjacency list is a collection of unordered lists used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.
+
+The given node will always be the first node with val = 1. You must return the copy of the given node as a reference to the cloned graph.
+
+long explanatio: there is a dfs solution and a bfs solution for this problem
+DFS:
+info:
+1. all nodes are connected to each other somehow
+2. all connections are two way(undirected)
+3. you are creating a new node from scratch to copy the original node
+4. all node values are unique
+
+algorithm explanation:
+having a map that stores all of the nodes we've created a copy for thus far will make sure a depth first search doesnt infinitely loop.
+now, we check if the node exists to begin with for us to copy.
+if it does, then we check if weve already seen it if we have return that node immediately
+otherwise create a new node with the value we're currently tryna copy, then insert that node into the hash map.
+now loop the original node were currently looking at, and for each of its neighbors dfs to get the right node in the clone's neighbors array
+the idea here is that nodes belong in the neighbors array, so if the return value of dfs is itself a node, then it would make sense to add return values to the neighbors array. if the dfs hits a new node, it'll create that new node and fill out its neighbors, otherwise the exisiting copied node will be inserted into the current node's neighbors. at some point every node in the neighbors list will have been seen, ending the recursive calls since no new nodes will be created;
