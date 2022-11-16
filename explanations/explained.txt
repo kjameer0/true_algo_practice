@@ -1,0 +1,13 @@
+1. top k frequent elements
+  - array heap problem
+  - solution: record frequencies in Map
+    - create array of same size as original
+    - store which numbers have i frequency in an array at index i
+    - loop k times and add those keys to results
+  - Space- 1 map O(n) frequencies O(n) res O(n)
+2.word pattern
+  - hashing problem
+  - get all strings from spaced string
+  - create 2 maps
+  - loop first string
+  -
