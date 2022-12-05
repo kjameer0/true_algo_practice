@@ -1,0 +1,20 @@
+{
+  "name": "true_algo_practice",
+  "version": "1.0.0",
+  "description": "my algo solutions will go here until something good happens",
+  "main": "3-5-divide.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjameer0/true_algo_practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjameer0/true_algo_practice/issues"
+  },
+  "homepage": "https://github.com/kjameer0/true_algo_practice#readme"
+}
