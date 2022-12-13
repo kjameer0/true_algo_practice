@@ -12,7 +12,7 @@ var asteroidCollision = (asteroids) => {
   }
   return stack;
 };
-
+asteroidCollision([1, -2]);
 /*
 start stack
 get two asteroids on the stack
