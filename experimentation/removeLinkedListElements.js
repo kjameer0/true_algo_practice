@@ -36,3 +36,16 @@ var removeElements2 = function (head, val) {
   }
   return newNode.next;
 };
+
+let arr = [2, 3, 5, 7, 1, 7];
+console.log(2 ^ 3 ^ 5 ^ 7 ^ 1 ^ 7);
+let other = [2]; //3 7 1
+for (let i = 1; i < arr.length; i++) {
+  other.push(arr[i] ^ other[i - 1]);
+}
+console.log(other);
+let end = other.length - 1;
+//if start = 0 just choose j
+//otherwise j ^ i -1
+console.log(7 ^ 7 ^ 1);
+console.log(5 ^ 4);
