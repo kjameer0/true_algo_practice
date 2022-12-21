@@ -53,3 +53,23 @@ function countBits(n) {
   }
   return ans;
 }
+
+function updateRecords(records, id, prop, value) {
+  if (prop !== "tracks" && value != "") {
+    records[id][prop] = value;
+  }
+  if (prop == "tracks") {
+    if (!records[id].hasOwnProperty("tracks")) {
+      records[id]["tracks"] = [value];
+    } else {
+      records[id][prop].push(value);
+    }
+  }
+  if (value === "") {
+    delete records[id][prop];
+  }
+  return records;
+}
+const obj = {
+  name: "khalid",
+};
